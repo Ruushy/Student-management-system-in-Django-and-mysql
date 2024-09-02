@@ -1,0 +1,85 @@
+{% extends 'hod_template/base.html' %}
+{% block page_title %}Manage Stuff{% endblock page_title %}
+
+{% load static %}
+
+{% block main_content %}
+
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Staff Details</h3>
+            <div class="card-tools">
+              <div class="input-group input-group-sm" style="width: 150px;">
+                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                <div class="input-group-append">
+                  <button type="submit" class="btn btn-default">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body table-responsive p-0">
+            <table class="table table-hover Datatable text-nowrap">
+              <thead>
+                <tr>
+                  <th scope="col" ></th>
+                  <th scope="col" >ID</th>
+                  <th scope="col" >First Name</th>
+                  <th scope="col" >Last Name</th>
+                  <th scope="col" >Username</th>
+                  <th scope="col" >Email</th>
+                  <th scope="col" >Last Login</th>
+                  <th scope="col" >Date Joined</th>
+                  <th scope="col" >Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for stuff in stuff %}
+                <tr>
+                  <td></td>
+                  <td>{{stuff.admin.id}}</td>
+                  <td>{{stuff.admin.first_name}}</td>
+                  <td>{{stuff.admin.last_name}}</td>
+                  <td>{{stuff.admin.username}}</td>
+                  <td>{{stuff.admin.email}}</td>
+                  <td>{{stuff.admin.last_login}}</td>
+                  <td>{{stuff.admin.date_joined}}</td>
+                  <td><a href="/edit_stuff{{stuff.admin.id}}" class="btn btn-success">edit</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+        {% if messages %}
+        {% for message in messages %}
+        {% if message.tags == 'error' %}
+        <div style="margin-top: 10px;" class="alert alert-danger">{{message}}</div>
+        {% endif %}
+        {% if message.tags == 'success' %}
+        <div style="margin-top: 10px;" class="alert alert-success">{{message}}</div>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <!-- /.container-fluid -->
+</section>
+
+{% comment %} <button class="btn btn-primary" name="Datatable">Print</button> {% endcomment %}
+
+{% block custom_js %}
+
+{% endblock custom_js %}
+
+{% endblock main_content %}

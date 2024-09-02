@@ -1,0 +1,73 @@
+
+{% extends 'hod_template/base.html' %}
+{% block page_title %}Add Subject{% endblock page_title %}
+
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary">
+                <div class="card-header">
+                  <h3 class="card-title">Add subject</h3>
+                </div>
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form role="form" action="/edit_subject_save" method="post">
+                    {% csrf_token %}
+                  <div class="card-body">
+                    
+                    <div class="form-group">
+                      <label>Subject Name</label>
+                      <input type="text" class="form-control" name="subject" value="{{subject.subject_name}}" placeholder="Enter a subject name">
+                      <input type="hidden"  name="subject_id" value="{{subject.id}}" placeholder="Enter a subject name">
+                    </div>
+                    <div class="form-goup">
+                        <label>Course</label>
+                        <select class="form-control" name="course">
+                            {% for course in course %}
+                                <option value="{{course.id}}" {% if course.id == subject.course_id.id  %} selected {% endif %}>{{course.course_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-goup">
+                        <label>Staff</label>
+                        <select class="form-control" name="stuff">
+                            {% for stuff in stuff %}
+                                <option value="{{stuff.id}}" {% if stuff.id == subject.staff_id.id  %} selected {% endif %}>{{stuff.first_name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                   </div class="form-group">
+                          {% if messages %}
+                            {% for message in messages %}
+                              {% if message.tags == 'error' %}
+                                 <div style="margin-top: 10px;" class="alert alert-danger">{{message}}</div>
+                              {% endif %}
+                              {% if message.tags == 'success' %}
+                                 <div style="margin-top: 10px;" class="alert alert-success">{{message}}</div>
+                              {% endif %}
+                           {% endfor %}
+                          {% endif %}
+                    </div>
+                      
+                    
+                   
+                  </div>
+                  <!-- /.card-body -->
+  
+                  <div class="card-footer col-12">
+                    <button type="submit" class="btn btn-primary btn-block">Add subject</button>
+                  </div>
+                  
+                </form>
+              </div>
+        </div>
+       
+      </div>
+    </div><!-- /.container-fluid -->
+  </section>
+
+{% endblock main_content %}

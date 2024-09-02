@@ -1,0 +1,127 @@
+{% load static %}
+
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/admin_profile" class="brand-link">
+        <img src="{% static 'dist/img/AdminLTELogo.png' %}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">Admin</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="{% static 'dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="/admin_profile" class="d-block">{{ user.username }}</a>
+            </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+                <li class="nav-item">
+                    <a href="/add_staff" class="nav-link">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>Add Staff</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/manage_stuff" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Manage Staff</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/add_student" class="nav-link">
+                        <i class="nav-icon fas fa-user-graduate"></i>
+                        <p>Add Student</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/manage_student" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Manage Student</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/add_course" class="nav-link">
+                        <i class="nav-icon fas fa-book"></i>
+                        <p>Add Course</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/manage_course" class="nav-link">
+                        <i class="nav-icon fas fa-book-open"></i>
+                        <p>Manage Course</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/add_subject" class="nav-link">
+                        <i class="nav-icon fas fa-file-alt"></i>
+                        <p>Add Subject</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/manage_subject" class="nav-link">
+                        <i class="nav-icon fas fa-file"></i>
+                        <p>Manage Subject</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/manage_session" class="nav-link">
+                        <i class="nav-icon fas fa-calendar"></i>
+                        <p>Manage Session</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/admin_view_attendance" class="nav-link">
+                        <i class="nav-icon fas fa-clipboard-list"></i>
+                        <p>View Attendance</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/student_feedback_message" class="nav-link">
+                        <i class="nav-icon fas fa-comment"></i>
+                        <p>Student Feedback</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/stuff_feedback_message" class="nav-link">
+                        <i class="nav-icon fas fa-comment-alt"></i>
+                        <p>Staff Feedback</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/student_leave" class="nav-link">
+                        <i class="nav-icon fas fa-calendar-times"></i>
+                        <p>Student Leave</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/stuff_leave" class="nav-link">
+                        <i class="nav-icon fas fa-calendar-minus"></i>
+                        <p>Staff Leave</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'admin_send_notification_staff' %}" class="nav-link">
+                        <i class="nav-icon fas fa-bell"></i>
+                        <p>Send Staff Notification</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'admin_send_notification_student' %}" class="nav-link">
+                        <i class="nav-icon fas fa-bell"></i>
+                        <p>Send Student Notification</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+</aside>

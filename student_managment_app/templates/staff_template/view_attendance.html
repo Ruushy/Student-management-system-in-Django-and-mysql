@@ -1,0 +1,40 @@
+
+{% extends 'staff_template/base.html' %}
+{% block page_title %}View attendence{% endblock page_title %}
+
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="container-fluid">
+      <!-- take_attendance.html -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Roll No.</th>
+            <th>Status</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for attendance in attendances %}
+            <tr>
+              <td>{{ attendance.student_id.admin.first_name }} {{ attendance.student_id.admin.last_name }}</td>
+              <td>{{ attendance.student_id.roll_number }}</td>
+              <td>{{ attendance.status }}</td>
+              <td>{{ attendance.attendance_date }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div><!-- /.container-fluid -->
+  </section>
+
+{% endblock main_content %}
+
+{% block custom_js %}
+
+
+{% endblock custom_js %}

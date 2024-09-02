@@ -1,0 +1,61 @@
+
+{% extends 'staff_template/base.html' %}
+{% block page_title %}Take attendence{% endblock page_title %}
+
+{% load static %}
+
+{% block main_content %}
+<section class="content">
+    <div class="container-fluid">
+      <!-- take_attendance.html -->
+
+      <form method="post" id="attendance-form">
+        {% csrf_token %}
+        <input type="hidden" name="subject_id" value="{{ students.0.course_id.subjects.id }}">
+        <input type="hidden" name="session_year_id" value="{{ students.0.session_year_id.id }}">
+        <input type="hidden" name="attendance_date" value="{{ today }}">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Roll No.</th>
+              <th>Present</th>
+              <th>Absent</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for student in students %}
+              <tr>
+                <td>{{ student.admin.first_name }} {{ student.admin.last_name }}</td>
+                <td>{{ student.roll_number }}</td>
+                <td><input type="radio" name="student_{{ student.id }}" value="P" class="attendance-radio" required></td>
+                <td><input type="radio" name="student_{{ student.id }}" value="A" class="attendance-radio"></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <button type="submit">Submit</button>
+      </form>
+      
+      <script>
+            const attendanceForm = document.getElementById('attendance-form');
+            const attendanceRadios = attendanceForm.querySelectorAll('.attendance-radio');
+            
+            attendanceRadios.forEach((radio) => {
+            radio.addEventListener('click', () => {
+                const otherRadio = attendanceForm.querySelector(`input[name="${radio.name}"][value!="${radio.value}"]`);
+                otherRadio.checked = false;
+            });
+            });
+      </script>
+
+      
+    </div><!-- /.container-fluid -->
+  </section>
+
+{% endblock main_content %}
+
+{% block custom_js %}
+
+
+{% endblock custom_js %}

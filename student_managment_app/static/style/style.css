@@ -1,0 +1,113 @@
+
+    ::-webkit-scrollbar {
+        width: 0;
+    }
+
+    @font-face {
+        font-family: "Material Icons";
+        font-style: normal;
+        font-weight: 400;
+        src: url('iconfont.woff2') format("woff2");
+    }
+
+    .material-icons {
+        font-family: "Material Icons";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 1;
+        letter-spacing: normal;
+        text-transform: none;
+        display: inline-block;
+        white-space: nowrap;
+        word-wrap: normal;
+        direction: ltr;
+        font-feature-settings: 'liga';
+        text-rendering: optimizeLegibility;
+        --webkit-font-feature-settings: "liga";
+        --webkit-font-smoothing: antialiased;
+        --moz-osx-font-smoothing: grayscale;
+    }
+
+    .loader-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .loader {
+        border: 6px solid #fff;
+        border-top: 6px solid #3498db;
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .spinner {
+        position: relative;
+        width: 15.7px;
+        height: 15.7px;
+    }
+
+    .spinner div {
+        animation: spinner-4t3wzl 1.125s infinite backwards;
+        background: linear-gradient(45deg, #4ebcf3, #b53ae6);
+        border-radius: 50%;
+        height: 100%;
+        position: absolute;
+        width: 100%;
+    }
+
+    .spinner div:nth-child(1) {
+        animation-delay: 0.09s;
+        background-color: rgba(71, 75, 255, 0.9);
+    }
+
+    .spinner div:nth-child(2) {
+        animation-delay: 0.18s;
+        background-color: rgba(71, 75, 255, 0.8);
+    }
+
+    .spinner div:nth-child(3) {
+        animation-delay: 0.27s;
+        background-color: rgba(71, 75, 255, 0.7);
+    }
+
+    .spinner div:nth-child(4) {
+        animation-delay: 0.36s;
+        background-color: rgba(71, 75, 255, 0.6);
+    }
+
+    .spinner div:nth-child(5) {
+        animation-delay: 0.44999999999999996s;
+        background-color: rgba(71, 75, 255, 0.5);
+    }
+
+    @keyframes spinner-4t3wzl {
+        0% {
+            transform: rotate(0deg) translateY(-200%);
+        }
+
+        60%,
+        100% {
+            transform: rotate(360deg) translateY(-200%);
+        }
+    }

@@ -1,0 +1,341 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Management | Dashboard</title>
+  <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="{% static 'plugins/fontawesome-free/css/all.min.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+<link rel="stylesheet" href="{% static 'style/style.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/jqvmap/jqvmap.min.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font+Name">
+
+<link rel="stylesheet" href="{% static 'plugins/daterangepicker/daterangepicker.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/summernote/summernote-bs4.min.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/datatables-select/css/select.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/datatables-bs4/css/dataTables.bootstrap4.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'plugins/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
+<link rel="stylesheet" href="{% static 'dist/css/adminlte.min.css' %}">
+
+
+  {% block custom_css %}
+  {% endblock custom_css %}
+</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
+
+  <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="{% static 'dist/img/AdminLTELogo.png' %} " alt="AdminLTELogo" height="60" width="60">
+  </div>
+
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+
+    </ul>
+
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Navbar Search -->
+     
+      <!-- <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li> -->
+      <li class="nav-item">
+       <a href="/logout" class="nav-link">Logout</a>
+       <li class="nav-item">
+        <a class="nav-link" role="button" id="dark"><i class="fas fa-moon" id="toggle-btn"></i></a>
+    </li>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <ul class="navbar-nav ml-auto">
+    <!-- Navbar Search -->
+   
+    
+   {% include 'hod_template/sidebar_template.html' with user=user %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+     
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">{% block page_title %}{% endblock page_title %}</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin_home">Home</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    {% block main_content %}
+    <div class="loader-overlay" id="loader-overlay">
+      <div class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+     </div>
+    
+    {% endblock main_content %}
+    <!-- /.content -->
+  </div>
+ 
+   {% include 'hod_template/footer.html'  %}
+
+  
+</div>
+<!-- ./wrapper -->
+
+<!-- jQuery -->
+<script src="{% static 'plugins/jquery/jquery.min.js' %} "></script>
+<script src="{% static 'plugins/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+<!-- jQuery UI 1.11.4 -->
+<script src="{% static 'plugins/jquery-ui/jquery-ui.min.js' %} "></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+  $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<!-- ChartJS -->
+<script src="{% static 'plugins/chart.js/Chart.min.js' %} "></script>
+<!-- Sparkline -->
+<script src="{% static 'plugins/sparklines/sparkline.js' %} "></script>
+<!-- JQVMap -->
+<script src="{% static 'plugins/jqvmap/jquery.vmap.min.js' %} "></script>
+<script src="{% static 'plugins/jqvmap/maps/jquery.vmap.usa.js' %} "></script>
+<!-- jQuery Knob Chart -->
+<script src="{% static 'plugins/jquery-knob/jquery.knob.min.js' %} "></script>
+<!-- daterangepicker -->
+<script src="{% static 'plugins/moment/moment.min.js' %} "></script>
+<script src="{% static 'plugins/daterangepicker/daterangepicker.js' %} "></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="{% static 'plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js' %} "></script>
+<!-- Summernote -->
+<script src="{% static 'plugins/summernote/summernote-bs4.min.js' %} "></script>
+<!-- overlayScrollbars -->
+<script src="{% static 'plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %} "></script>
+<!-- AdminLTE App -->
+<script src="{% static 'dist/js/adminlte.js' %} "></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{% static 'dist/js/demo.js' %} "></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{% static 'dist/js/pages/dashboard.js' %} "></script>
+
+<script src="{% static 'plugins/datatables/jquery.dataTables.js' %}"></script>
+<script src="{% static 'plugins/datatables-bs4/js/dataTables.bootstrap4.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/dataTables.buttons.min.js'%} "></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.bootstrap4.min.js'%} "></script>
+<script src="{% static 'plugins/datatables-select/js/dataTables.select.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'plugins/pdfmake/pdfmake.min.js' %}"></script>
+<script src="{% static 'plugins/pdfmake/vfs_fonts.js' %}"></script>
+<script src="{% static 'plugins/jszip/jszip.min.js' %}"></script>
+
+
+{% block custom_js %}
+<script>
+    $('.Datatable').DataTable({
+        dom: 'lBftrip',
+        dom: "<'row'<'col-sm-2'l><'col-sm-7'B><'col-sm-3'f>>" + "<'row'<'col-sm-12'rt>>" +
+            "<'row'<'col-sm-6'i><'col-sm-6'p>>",
+        lengthMenu: [10, 25, 50, 100, 150, 200],
+        select: true,
+        buttons: [
+            {
+                extend: 'selectAll',
+                className: "btn-default btn-sm rounded-3 me-2",
+                text: '<span class="material-icons">select_all</span>',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'selectAll');
+                    $(node).tooltip();
+                },
+            },
+            {
+                extend: 'selectNone',
+                className: "btn-default btn-sm rounded-3 me-2",
+                text: '<span class="material-icons">deselect</span>',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'selectNone');
+                    $(node).tooltip();
+                },
+            },
+            {
+                extend: 'excel',
+                text: '<i class="fa fa-file-excel fa-lg"></i>',
+                className: "btn-secondary btn-sm rounded-3 me-2",
+                download: 'open',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'Excel');
+                    $(node).tooltip();
+                },
+                exportOptions: {
+                    columns: ':visible'
+                },
+                key: {
+                    key: 'e',
+                    ctrlKey: true
+                }
+            },
+            {
+                extend: 'csv',
+                text: '<i class="material-icons">description</i>',
+                className: "btn-secondary btn-sm rounded-3 me-2",
+                download: 'open',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                key: {
+                    key: 'e',
+                    ctrlKey: true
+                }
+            },
+            {
+                extend: 'copy',
+                text: '<span class="material-icons">content_copy</span>',
+                className: "btn-secondary btn-sm rounded-3 me-2",
+                exportOptions: {
+                    columns: ':visible'
+                },
+                key: {
+                    key: 'c',
+                    ctrlKey: true
+                }
+            },
+            {
+                extend: 'pdf',
+                text: '<span class="material-icons">picture_as_pdf</span>',
+                className: "btn-secondary btn-sm rounded-3 me-2",
+                pageSize: 'LEGAL',
+                download: 'open',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'PDF');
+                    $(node).tooltip();
+                },
+                exportOptions: {
+                    columns: ':visible'
+                },
+                key: {
+                    key: 's',
+                    ctrlKey: true
+                }
+            },
+            {
+                extend: 'print',
+                title: '',
+                className: "btn-secondary btn-sm rounded-3 me-2",
+                init: function(api, node, config) {
+                    $(node).attr('title', 'Print');
+                    $(node).tooltip();
+                },
+                text: '<span class="material-icons">print</span>',
+                exportOptions: {
+                    columns: ':visible'
+                },
+                key: {
+                    key: 'p',
+                    altKey: true
+                }
+            },
+            {
+                extend: 'colvisRestore',
+                className: "btn-info btn-sm rounded-3 me-2",
+                text: '<span class="material-icons">restore</span>',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'Restore Columns');
+                    $(node).tooltip();
+                },
+            },
+            {
+                extend: 'colvis',
+                className: "btn-info btn-sm rounded-3 me-2",
+                text: '<span class="material-icons">playlist_add_check</span>',
+                init: function(api, node, config) {
+                    $(node).attr('title', 'Remove Columns');
+                    $(node).tooltip();
+                },
+            },
+        ],
+
+        columnDefs: [ {
+            orderable: false,
+            className: 'select-checkbox',
+            targets:   0
+        } ],
+        select: {
+            style:    'os',
+            selector: 'td:first-child'
+        },
+        order: [[ 1, 'asc' ]],
+
+    });
+    $(document).ready(function() {
+        // Hide the loader and overlay on page load
+        $('#loader-overlay').hide();
+
+        // Show the loader and overlay when a form is submitted or a link is clicked
+        $('form').submit(function() {
+            $('#loader-overlay').show();
+        });
+        // $('a').click(function() {
+        //     $('#loader-overlay').show();
+        // });
+
+        // Hide the loader and overlay when the page finishes loading
+        $(window).on('load', function() {
+            $('#loader-overlay').fadeOut();
+        });
+    });
+
+    $(document).ready(function() {
+        // Hide the loader and overlay on page load
+        $('#loader-overlay').hide();
+
+        // Show the loader and overlay when a form is submitted or a link is clicked
+        $('form').submit(function() {
+            $('#loader-overlay').show();
+        });
+        // $('a').click(function() {
+        //     $('#loader-overlay').show();
+        // });
+
+        // Hide the loader and overlay when the page finishes loading
+        $(window).on('load', function() {
+            $('#loader-overlay').fadeOut();
+        });
+    });
+
+
+
+</script>
+{% endblock custom_js %}
+
+</body>
+</html>
