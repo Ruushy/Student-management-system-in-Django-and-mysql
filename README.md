@@ -65,7 +65,7 @@ A web-based application built with Django and MySQL to manage student data effic
 
 ## Contact
 
-For any questions or feedback, please contact [your-email@example.com].
+For any questions or feedback, please contact [thaliban659@gmail.com].
 ```
 
 Feel free to customize this template to better fit your project's specifics and your preferences.
